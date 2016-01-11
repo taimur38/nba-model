@@ -3,9 +3,9 @@ import json
 import itertools
 
 fieldnames = []
-stats = open('combined-stats.csv')
+stats = open('data/combined-stats.csv')
 
-with open('headers') as f:
+with open('data/headers') as f:
 	fieldnames = [line.strip() for line in f]
 
 reader = csv.DictReader(stats, fieldnames=fieldnames)
@@ -48,7 +48,7 @@ for gameid in games:
 		]
 		rows.append(row)
 
-with open('box_scores.csv', 'w') as f:
+with open('generated/box_scores.csv', 'w') as f:
 	for row in rows:
 		f.write(','.join([str(r) for r in row]) + '\n')
 
