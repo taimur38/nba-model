@@ -8,12 +8,11 @@ with open('generated/defense-profile.json') as f:
 with open('generated/shot-profile.json') as f:
 	shot_profile = json.load(f)
 
-print(sys.argv)
-knicks = shot_profile[sys.argv[1]]
+team = shot_profile[sys.argv[1]]
 
 ranking = {}
-for coord in knicks:
-	stat = knicks[coord]
+for coord in team:
+	stat = team[coord]
 	ranking[coord] = stat['made'] + stat['attempt']
 
 sorted_coords = sorted(ranking.items(), key=operator.itemgetter(1))
